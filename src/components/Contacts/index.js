@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Form from "./Form";
 import List from "./List";
+import "./styles.css";
 
 function Contacts() {
   const [contacts, setContacts] = useState([
@@ -14,7 +15,7 @@ function Contacts() {
   }, [contacts]);
 
   return (
-    <div>
+    <div id="container">
       <List contacts={contacts} />
       <Form addContact={setContacts} contacts={contacts} />
     </div>

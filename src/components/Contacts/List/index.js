@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 export default function List({ contacts }) {
   const [filterText, setFilterText] = useState("");
   const filteredText = contacts.filter((item) => {
@@ -14,10 +13,13 @@ export default function List({ contacts }) {
         placeholder="Filter"
         onChange={(e) => setFilterText(e.target.value)}
       />
-      <h1>Contacts List</h1>
-      <ul>
+      <h1>Contacts List ({filteredText.length})</h1>
+      <ul className="list">
         {filteredText.map((item, i) => (
-          <li key={i}>{item.fullname + "-" + item.phone}</li>
+          <li key={i}>
+            <span>{item.fullname}</span>
+            <span>{item.phone}</span>
+          </li>
         ))}
       </ul>
     </div>
